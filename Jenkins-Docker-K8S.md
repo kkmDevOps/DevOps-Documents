@@ -44,6 +44,17 @@ $ sudo systemctl restart jenkins <br/>
 
 4) Verify docker installation  <br/>
 $ sudo docker version
+# Step -4 : Create GKE Management Host in GCP
+  # Download and install the Google Cloud SDK
+export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+
+# Update package list and install the Google Cloud SDK
+sudo apt-get update && sudo apt-get install google-cloud-sdk
+
+# Verify the installation
+gcloud version
 
 # Step - 4 : Create EKS Management Host in AWS #
 
